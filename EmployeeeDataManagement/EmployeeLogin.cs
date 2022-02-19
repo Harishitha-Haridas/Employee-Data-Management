@@ -195,7 +195,7 @@ namespace EmployeeeDataManagement
 
         private void btnSalaryDetails_Click(object sender, EventArgs e)
         {
-            int ch = 1;
+            int ch = 2;
             String job = txtJob.Text;
             String name = textName.Text;
             int id = Convert.ToInt32(txtEmpId.Text);
@@ -205,7 +205,7 @@ namespace EmployeeeDataManagement
 
         private void btnLeveDetails_Click(object sender, EventArgs e)
         {
-            int ch = 2;
+            int ch = 1;
             String job = txtJob.Text;
             String name = textName.Text;
             int id = Convert.ToInt32(txtEmpId.Text);

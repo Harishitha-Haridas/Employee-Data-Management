@@ -40,22 +40,24 @@ namespace EmployeeeDataManagement
            
 
             string password;
-            int Emd = Convert.ToInt32(txtEmp.Text);
+           // int Emd = Convert.ToInt32(txtEmp.Text);
             String current = txtcurrent.Text;
-            if (Emd == ID && current == Pass)
+            if ( current == Pass)
             { 
                 if(txtNew.Text== txtCon.Text)
                 {
                     password = txtNew.Text;
                     var res1 = MessageBox.Show("Do you want to change the password?", "Change Password", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                     if (res1 != DialogResult.OK)
+                    if (res1 != DialogResult.OK)
+                    { this.Close();
                         return;
-                    var res = _employService.UpdatePassword(ID, password);
+                    }
+                
+                var res = _employService.UpdatePassword(ID, password);
                     if (res > 0)
                     {
-                        MessageBox.Show("Password changed successfully;" +
-                            "\nPlease Login once again by new password ");
-                        //  EmployeeLogin.Close();
+                        MessageBox.Show("Password changed successfully;\nPlease Login once again by new password ", "Password Changed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
                         previousWindow.Close();
                         this.Close();
                     }
