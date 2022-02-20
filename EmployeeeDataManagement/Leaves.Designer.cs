@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
+            this.dateTimePick = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label3
@@ -160,6 +161,15 @@
             this.txtDate.Size = new System.Drawing.Size(49, 23);
             this.txtDate.TabIndex = 14;
             // 
+            // dateTimePick
+            // 
+            this.dateTimePick.Location = new System.Drawing.Point(204, 67);
+            this.dateTimePick.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.dateTimePick.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
+            this.dateTimePick.Name = "dateTimePick";
+            this.dateTimePick.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePick.TabIndex = 15;
+            // 
             // Leaves
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,6 +177,7 @@
             this.BackgroundImage = global::EmployeeeDataManagement.Properties.Resources.LEAVE2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(536, 252);
+            this.Controls.Add(this.dateTimePick);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -197,5 +208,6 @@
         private Label label1;
         private Label label4;
         private TextBox txtDate;
+        private DateTimePicker dateTimePick;
     }
 }

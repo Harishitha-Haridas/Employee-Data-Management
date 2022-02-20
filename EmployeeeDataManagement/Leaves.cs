@@ -26,24 +26,27 @@ namespace EmployeeeDataManagement
         }
 
         private void Apply_Click(object sender, EventArgs e)
-        {
+        { string t= dateTimePick.Text;
+            int p= dateTimePick.Value.Year;
+            int k = dateTimePick.Value.Month;
+            int j = 0;
             int Date,Month,Year;
             string FullDate, Reason;
-            Date = Convert.ToInt32(txtDate.Text);
-            Month = Convert.ToInt32(comboMonth.Text);
-                Year = Convert.ToInt32(comboYear.Text);
+          //  Date = Convert.ToInt32(txtDate.Text);
+          //  Month = Convert.ToInt32(comboMonth.Text);
+             //   Year = Convert.ToInt32(comboYear.Text);
 
             Reason = RichReason.Text;
-                FullDate = $"{ Date}/{Month} /{Year}";
+               // FullDate = $"{ Date}/{Month} /{Year}";
 
             var lv = new Leave()
             {
                 EmpId = ID,
-            LDay = Date,
-                LMonth = Month,
-                LYear = Year,
+            LDay = j,
+                LMonth = k,
+                LYear = p,
 
-                Date = FullDate,
+                Date = t,
                 Lreason = Reason
 
 

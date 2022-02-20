@@ -26,7 +26,7 @@ namespace EmployeeeDataManagement.Services
         public int AddOne(EmployeeData Employee)
         {
             ConnectionManager.EnsureConnectionIsActive();
-            var sql = $"INSERT INTO {nameof(EmployeeData)} ({nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
+            var sql = $"INSERT INTO  {nameof(EmployeeData)} ({nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                 $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                 $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
                  $" {nameof(EmployeeData.MaxSalary)}) VALUES" +
@@ -45,12 +45,12 @@ namespace EmployeeeDataManagement.Services
             cmd.Parameters.AddWithValue("@JobLocation", Employee.JobLocation);
             cmd.Parameters.AddWithValue("@MaxSalary", Employee.MaxSalary);
             cmd.Parameters.AddWithValue("@ApplicableSalary", Employee.ApplicableSalary);
-
+      
             return cmd.ExecuteNonQuery();
         }
         #endregion
 
-        #region View by id //and view
+        #region View by id 
         public EmployeeData GetByIdOnly(int id)
         {
             ConnectionManager.EnsureConnectionIsActive();
@@ -64,8 +64,9 @@ namespace EmployeeeDataManagement.Services
 
             var cmd = new SqlCommand(sql, _connection);
             cmd.Parameters.AddWithValue("@id", id);
-           // cmd.Parameters.AddWithValue("@Name", Name);
-            
+            // cmd.Parameters.AddWithValue("@Name", Name);
+            string? s = null;
+          
             SqlDataReader? reader = cmd.ExecuteReader();
             //reader.Open();
             var Employee = new EmployeeData();
@@ -102,6 +103,7 @@ namespace EmployeeeDataManagement.Services
         public int UpdateJobDetails(int IDno, string title, string loc, string departmet,int max)
         {
             ConnectionManager.EnsureConnectionIsActive();
+           
             var sql = $"UPDATE {nameof(EmployeeData)} SET   {nameof(EmployeeData.JobTitle)}=@JobTitle , {nameof(EmployeeData.Depatment)}=@Depatment , {nameof(EmployeeData.JobLocation)}= @JobLocation ," +
                  $" {nameof(EmployeeData.MaxSalary)}=  @MaxSalary WHERE {nameof(EmployeeData.ID)} = @id "; //and {nameof(EmployeeData.Name)} = @Name
 
@@ -262,6 +264,7 @@ namespace EmployeeeDataManagement.Services
         {
             ConnectionManager.EnsureConnectionIsActive();
             var sql = $"SELECT {nameof(EmployeeData.ID)} FROM {nameof(EmployeeData)}";
+           
             var cmd = new SqlCommand(sql, _connection);
             var reader = cmd.ExecuteReader();
 
@@ -278,7 +281,7 @@ namespace EmployeeeDataManagement.Services
 
         #region CALCULATING SALARY
         public int Calsalary(int ID,int month, int Year)
-        {
+        { 
             int max = 0, no_leave = 0;
             long perday, App;
             ConnectionManager.EnsureConnectionIsActive();
@@ -293,7 +296,7 @@ namespace EmployeeeDataManagement.Services
                
             }
             reader1.Close();
-            
+         
             ConnectionManager.EnsureConnectionIsActive();
             var sql2 = $"SELECT COUNT(*)  FROM {nameof(Leave)} WHERE {nameof(Leave.EmpId)}=@ID and" +
                 $" {nameof(Leave.LMonth)}=@month and {nameof(Leave.LYear)}=@Year";
@@ -367,7 +370,7 @@ namespace EmployeeeDataManagement.Services
             ConnectionManager.EnsureConnectionIsActive();
 
          //   var sql = $"SELECT  {nameof(EmployeeData.ID)} FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.Password)} = 'abcd' and {nameof(EmployeeData.Name)} ='geetha' ";
-
+         // select id from employeetdata whre pass= and user=name
            var sql = $"SELECT  {nameof(EmployeeData.ID)} FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.Password)} = @Password and {nameof(EmployeeData.Name)} = @Name ";
               var cmd = new SqlCommand(sql, _connection);
             cmd.Parameters.AddWithValue("@Password", U_Password);
