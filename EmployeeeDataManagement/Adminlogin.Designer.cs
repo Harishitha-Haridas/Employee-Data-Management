@@ -167,7 +167,7 @@
             this.groupNavigate.Size = new System.Drawing.Size(859, 387);
             this.groupNavigate.TabIndex = 10;
             this.groupNavigate.TabStop = false;
-            this.groupNavigate.Text = "Sort by";
+            this.groupNavigate.Text = "Search by";
             this.groupNavigate.Visible = false;
             // 
             // dataGridView1
@@ -185,7 +185,7 @@
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(100, 31);
             this.btnSort.TabIndex = 2;
-            this.btnSort.Text = "Sort";
+            this.btnSort.Text = "Search";
             this.btnSort.UseVisualStyleBackColor = true;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click_1);
             // 
@@ -607,6 +607,7 @@
             this.bUpdateEdit.TabIndex = 24;
             this.bUpdateEdit.Text = "Update";
             this.bUpdateEdit.UseVisualStyleBackColor = true;
+            this.bUpdateEdit.Click += new System.EventHandler(this.bUpdateEdit_Click_1);
             // 
             // groupBox3Edit
             // 

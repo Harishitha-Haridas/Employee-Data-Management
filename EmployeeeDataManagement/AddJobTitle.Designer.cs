@@ -78,7 +78,9 @@
             this.Controls.Add(this.EnterJob);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddJobTitle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add JobTitle";
             this.ResumeLayout(false);
             this.PerformLayout();

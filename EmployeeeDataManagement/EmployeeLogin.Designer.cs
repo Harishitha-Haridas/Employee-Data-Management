@@ -43,7 +43,6 @@
             this.lblRloc = new System.Windows.Forms.Label();
             this.textAge = new System.Windows.Forms.TextBox();
             this.lblAge = new System.Windows.Forms.Label();
-            this.textGender = new System.Windows.Forms.TextBox();
             this.textEmail = new System.Windows.Forms.TextBox();
             this.textPhone = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
@@ -62,6 +61,7 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalaryDetails = new System.Windows.Forms.Button();
             this.btnLeveDetails = new System.Windows.Forms.Button();
+            this.comboGender = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,7 +79,7 @@
             this.groupBox3.Controls.Add(this.txtJob);
             this.groupBox3.Controls.Add(this.lblJob);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(18, 254);
+            this.groupBox3.Location = new System.Drawing.Point(18, 304);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(640, 134);
             this.groupBox3.TabIndex = 7;
@@ -154,11 +154,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.comboGender);
             this.groupBox2.Controls.Add(this.textRloc);
             this.groupBox2.Controls.Add(this.lblRloc);
             this.groupBox2.Controls.Add(this.textAge);
             this.groupBox2.Controls.Add(this.lblAge);
-            this.groupBox2.Controls.Add(this.textGender);
             this.groupBox2.Controls.Add(this.textEmail);
             this.groupBox2.Controls.Add(this.textPhone);
             this.groupBox2.Controls.Add(this.textName);
@@ -169,7 +169,7 @@
             this.groupBox2.Controls.Add(this.lblName);
             this.groupBox2.Controls.Add(this.empID);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(12, 59);
+            this.groupBox2.Location = new System.Drawing.Point(18, 116);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(646, 170);
             this.groupBox2.TabIndex = 27;
@@ -210,14 +210,6 @@
             this.lblAge.Size = new System.Drawing.Size(36, 19);
             this.lblAge.TabIndex = 17;
             this.lblAge.Text = "Age";
-            // 
-            // textGender
-            // 
-            this.textGender.Location = new System.Drawing.Point(388, 110);
-            this.textGender.Name = "textGender";
-            this.textGender.ReadOnly = true;
-            this.textGender.Size = new System.Drawing.Size(100, 25);
-            this.textGender.TabIndex = 16;
             // 
             // textEmail
             // 
@@ -299,7 +291,7 @@
             // bUpdate
             // 
             this.bUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.bUpdate.Location = new System.Drawing.Point(573, 405);
+            this.bUpdate.Location = new System.Drawing.Point(573, 459);
             this.bUpdate.Name = "bUpdate";
             this.bUpdate.Size = new System.Drawing.Size(126, 33);
             this.bUpdate.TabIndex = 28;
@@ -360,7 +352,7 @@
             // btnSalaryDetails
             // 
             this.btnSalaryDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalaryDetails.Location = new System.Drawing.Point(155, 394);
+            this.btnSalaryDetails.Location = new System.Drawing.Point(156, 459);
             this.btnSalaryDetails.Name = "btnSalaryDetails";
             this.btnSalaryDetails.Size = new System.Drawing.Size(126, 33);
             this.btnSalaryDetails.TabIndex = 30;
@@ -372,7 +364,7 @@
             // btnLeveDetails
             // 
             this.btnLeveDetails.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLeveDetails.Location = new System.Drawing.Point(18, 394);
+            this.btnLeveDetails.Location = new System.Drawing.Point(18, 459);
             this.btnLeveDetails.Name = "btnLeveDetails";
             this.btnLeveDetails.Size = new System.Drawing.Size(126, 33);
             this.btnLeveDetails.TabIndex = 31;
@@ -380,6 +372,19 @@
             this.btnLeveDetails.UseVisualStyleBackColor = true;
             this.btnLeveDetails.Visible = false;
             this.btnLeveDetails.Click += new System.EventHandler(this.btnLeveDetails_Click);
+            // 
+            // comboGender
+            // 
+            this.comboGender.FormattingEnabled = true;
+            this.comboGender.Items.AddRange(new object[] {
+            "Male ",
+            "Female",
+            "Other",
+            "Not to Disclose"});
+            this.comboGender.Location = new System.Drawing.Point(388, 118);
+            this.comboGender.Name = "comboGender";
+            this.comboGender.Size = new System.Drawing.Size(103, 25);
+            this.comboGender.TabIndex = 21;
             // 
             // EmployeeLogin
             // 
@@ -427,7 +432,6 @@
         private Label lblRloc;
         private TextBox textAge;
         private Label lblAge;
-        private TextBox textGender;
         private TextBox textEmail;
         private TextBox textPhone;
         private TextBox textName;
@@ -446,5 +450,6 @@
         private ToolStripMenuItem logOutToolStripMenuItem;
         private Button btnSalaryDetails;
         private Button btnLeveDetails;
+        private ComboBox comboGender;
     }
 }

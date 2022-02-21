@@ -37,7 +37,7 @@ namespace EmployeeeDataManagement
             textEmail.ReadOnly = true;
             textPhone.ReadOnly = true;
             textRloc.ReadOnly = true;
-            textGender.ReadOnly = true;
+            comboGender.Enabled= false;
             textAge.ReadOnly = true;
 
             txtJob.ReadOnly = true;
@@ -59,7 +59,7 @@ namespace EmployeeeDataManagement
                 textAge.Text = employ.age.ToString();
                 textEmail.Text = employ.Email;
 
-                textGender.Text = employ.sex;
+                comboGender.Text = employ.sex;
                 textRloc.Text = employ.ResidentialLocation;
                 txtJob.Text = employ.JobTitle;
                 txtJobLoc.Text = employ.JobLocation;
@@ -89,7 +89,7 @@ namespace EmployeeeDataManagement
             Email = textEmail.Text;
             Phone = textPhone.Text;
             Rloc = textRloc.Text;
-            Gender = textGender.Text;
+            Gender = comboGender.Text;
            
 
             //public int UpdatePersonDetails(int IDno, string Email, string Phone, string Rloc, string Gender)
@@ -132,7 +132,7 @@ namespace EmployeeeDataManagement
             textEmail.ReadOnly = false;
             textPhone.ReadOnly = false;
             textRloc.ReadOnly = false;
-            textGender.ReadOnly = false;
+            comboGender.Enabled = true;
 
             textAge.ReadOnly = true;
             txtJob.ReadOnly = true;
@@ -156,7 +156,7 @@ namespace EmployeeeDataManagement
                 textAge.Text = employ.age.ToString();
                 textEmail.Text = employ.Email;
 
-                textGender.Text = employ.sex;
+                comboGender.Text = employ.sex;
                 textRloc.Text = employ.ResidentialLocation;
                 txtJob.Text = employ.JobTitle;
                 txtJobLoc.Text = employ.JobLocation;

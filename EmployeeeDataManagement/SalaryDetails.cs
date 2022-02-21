@@ -49,6 +49,8 @@ namespace EmployeeeDataManagement
             {
                 t += _employService.Calsalary(item,month, year);
             }
+            MessageBox.Show("Salary Calculated successfully",
+                            "Operation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         #endregion

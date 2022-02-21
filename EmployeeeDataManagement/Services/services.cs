@@ -133,7 +133,7 @@ namespace EmployeeeDataManagement.Services
             var sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                 $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                 $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-                 $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)} FROM {nameof(EmployeeData)} ";
+                 $" {nameof(EmployeeData.MaxSalary)} as 'Maximum Salary' FROM {nameof(EmployeeData)} ";
 
             var da = new SqlDataAdapter(sql, _connection);
             DataSet ds = new DataSet();
@@ -155,7 +155,7 @@ namespace EmployeeeDataManagement.Services
                     var sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                    $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                   $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-                   $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)} FROM {nameof(EmployeeData)} WHERE  {nameof(EmployeeData.JobTitle)}='{s2}' ";
+                   $" {nameof(EmployeeData.MaxSalary)}  as 'Maximum Salary' FROM {nameof(EmployeeData)} WHERE  {nameof(EmployeeData.JobTitle)}='{s2}' ";
 
                     var da = new SqlDataAdapter(sql, _connection);
                     DataSet ds = new DataSet();
@@ -167,7 +167,7 @@ namespace EmployeeeDataManagement.Services
                      sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                 $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-                $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)} FROM {nameof(EmployeeData)} WHERE  {nameof(EmployeeData.Depatment)}='{s2}' ";
+                $" {nameof(EmployeeData.MaxSalary)}  as 'Maximum Salary' FROM {nameof(EmployeeData)} WHERE  {nameof(EmployeeData.Depatment)}='{s2}' ";
 
                      da = new SqlDataAdapter(sql, _connection);
                      ds = new DataSet();
@@ -180,7 +180,7 @@ namespace EmployeeeDataManagement.Services
                     sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
               $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
              $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-              $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)} FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.JobLocation)}='{s2}' ";
+              $" {nameof(EmployeeData.MaxSalary)}  as 'Maximum Salary' FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.JobLocation)}='{s2}' ";
                    // cmd.Parameters.AddWithValue("@data", s2);
                     da = new SqlDataAdapter(sql, _connection);
                     ds = new DataSet();
@@ -191,7 +191,7 @@ namespace EmployeeeDataManagement.Services
                      sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                         $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                         $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-                         $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)} FROM {nameof(EmployeeData)} ";
+                         $" {nameof(EmployeeData.MaxSalary)}  as 'Maximum Salary' FROM {nameof(EmployeeData)} ";
 
                      da = new SqlDataAdapter(sql, _connection);
                      ds = new DataSet();

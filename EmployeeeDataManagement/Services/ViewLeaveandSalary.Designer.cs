@@ -55,16 +55,16 @@
             this.groupview.ForeColor = System.Drawing.Color.Navy;
             this.groupview.Location = new System.Drawing.Point(12, 12);
             this.groupview.Name = "groupview";
-            this.groupview.Size = new System.Drawing.Size(643, 396);
+            this.groupview.Size = new System.Drawing.Size(651, 396);
             this.groupview.TabIndex = 9;
             this.groupview.TabStop = false;
             this.groupview.Text = "View Salary Details";
             // 
             // txtJob
             // 
-            this.txtJob.Location = new System.Drawing.Point(469, 45);
+            this.txtJob.Location = new System.Drawing.Point(469, 39);
             this.txtJob.Name = "txtJob";
-            this.txtJob.Size = new System.Drawing.Size(152, 32);
+            this.txtJob.Size = new System.Drawing.Size(168, 32);
             this.txtJob.TabIndex = 29;
             // 
             // label2
@@ -81,7 +81,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(119, 39);
+            this.txtID.Location = new System.Drawing.Point(113, 39);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(47, 32);
             this.txtID.TabIndex = 27;
@@ -120,19 +120,20 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(549, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(603, 301);
             this.dataGridView1.TabIndex = 10;
             // 
             // ViewLeaveandSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 420);
+            this.ClientSize = new System.Drawing.Size(672, 420);
             this.Controls.Add(this.groupview);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ViewLeaveandSalary";
             this.Text = "View Leave and Salary";
             this.groupview.ResumeLayout(false);

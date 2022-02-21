@@ -136,7 +136,7 @@
             "2023"});
             this.comboYear.Location = new System.Drawing.Point(195, 34);
             this.comboYear.Name = "comboYear";
-            this.comboYear.Size = new System.Drawing.Size(64, 33);
+            this.comboYear.Size = new System.Drawing.Size(82, 33);
             this.comboYear.TabIndex = 18;
             // 
             // label3
@@ -222,7 +222,7 @@
             "2023"});
             this.sortYear.Location = new System.Drawing.Point(332, 28);
             this.sortYear.Name = "sortYear";
-            this.sortYear.Size = new System.Drawing.Size(64, 33);
+            this.sortYear.Size = new System.Drawing.Size(79, 33);
             this.sortYear.TabIndex = 22;
             // 
             // dataGridView1
@@ -236,11 +236,11 @@
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(417, 28);
+            this.btnSort.Location = new System.Drawing.Point(435, 28);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(100, 31);
             this.btnSort.TabIndex = 2;
-            this.btnSort.Text = "Sort";
+            this.btnSort.Text = "Search";
             this.btnSort.UseVisualStyleBackColor = true;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 

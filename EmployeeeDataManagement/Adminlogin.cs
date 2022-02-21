@@ -105,7 +105,11 @@ namespace EmployeeeDataManagement
         {
             try
             {
-                var AddEmp = new EmployeeData()
+                if (txtAddName.Text != "" && ttxtAddPhone.Text != "" && txtAddEmail.Text != "" &&
+                    AddGender.Text != "" && txtAddRLoc.Text != "" && addjob.Text != ""
+                    && AddJobLoc.Text != "" && Adddepatment.Text != "")
+                {
+                    var AddEmp = new EmployeeData()
                 {
                     Name = txtAddName.Text,
                     Phone = ttxtAddPhone.Text,
@@ -124,10 +128,7 @@ namespace EmployeeeDataManagement
 
 
                 };
-                if(AddEmp.Name!=""&& AddEmp.Phone != "" && AddEmp.Email != "" &&
-                    AddEmp.sex != "" && AddEmp.ResidentialLocation != "" && AddEmp.JobTitle != ""
-                    && AddEmp.JobLocation != "" && AddEmp.Depatment != "")
-                {
+             
                     var res = _employService.AddOne(AddEmp);
                     if (res > 0)
                         MessageBox.Show("Data added successfully",
@@ -147,26 +148,7 @@ namespace EmployeeeDataManagement
         #endregion
 
 
-        #region button Update in group box
-        private void bUpdateEdit_Click(object sender, EventArgs e)
-        {
-
-            string title, loc, department;
-            int max;
-            title = Editjob.Text;
-            loc = EditJobLoc.Text;
-            department = Editdepatment.Text;
-            max = Convert.ToInt32(TxtEditMax.Text);
-            int IDno = Convert.ToInt32(ID.Text);
-            // string Name = txtName.Text;
-            var res = _employService.UpdateJobDetails(IDno, title, loc, department, max);
-
-            if (res > 0)
-                MessageBox.Show("Data updated successfully");
-
-        
-    }
-        #endregion
+       
 
 
         #region search in groupbox
@@ -206,10 +188,11 @@ namespace EmployeeeDataManagement
 
                     }
                 }
+                else
                 MessageBox.Show("Please enter a valid id",
                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-               // MessageBox.Show("Please enter a valid id");
+              
                
             }
             if (i == 2)
@@ -380,5 +363,24 @@ namespace EmployeeeDataManagement
         {
            // this.previousWindow.Show();
         }
+
+        #region update button
+        private void bUpdateEdit_Click_1(object sender, EventArgs e)
+        {
+            string title, loc, department;
+            int max;
+            title = Editjob.Text;
+            loc = EditJobLoc.Text;
+            department = Editdepatment.Text;
+            max = Convert.ToInt32(TxtEditMax.Text);
+            int IDno = Convert.ToInt32(ID.Text);
+            // string Name = txtName.Text;
+            var res = _employService.UpdateJobDetails(IDno, title, loc, department, max);
+
+            if (res > 0)
+                MessageBox.Show("Data updated successfully",
+                         "Data updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        #endregion
     }
 }
