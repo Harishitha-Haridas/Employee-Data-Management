@@ -1310,8 +1310,11 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Adminlogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Adminlogin";
+            this.Load += new System.EventHandler(this.Adminlogin_Load);
             this.groupNavigate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

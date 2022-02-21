@@ -17,6 +17,7 @@ namespace EmployeeeDataManagement
 {
     public partial class SalaryDetails : Form
     {
+       
         private readonly services _employService = new services();
         List<int> IDAll = new List<int>();
         public SalaryDetails()
@@ -57,6 +58,12 @@ namespace EmployeeeDataManagement
             int month = Convert.ToInt32(sortMonth.Text);
             int year = Convert.ToInt32(sortYear.Text);
             dataGridView1.DataSource = _employService.GridViewSalary(month,year);
+        }
+
+        private void SalaryDetails_Load(object sender, EventArgs e)
+        {
+           // previousWindow.Enabled=true;
+           // previousWindow.menuStrip1.Enabled = false;
         }
     }
 }

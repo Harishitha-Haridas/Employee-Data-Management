@@ -22,11 +22,13 @@ namespace EmployeeeDataManagement
     {
         List<String> jobs=new List<String>();
         int i;
+        private readonly Form1 previousWindow;
         private readonly services _employService = new services();
-        public Adminlogin()
+        public Adminlogin(Form1 pre)
         {
             InitializeComponent();
             jobs = _employService.GetAllJobtitles();
+            this.previousWindow = pre;
         }
 
 
@@ -327,16 +329,15 @@ namespace EmployeeeDataManagement
         #region AddJobTool
         private void AddJobToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AddJobTitle().Show();
+            new AddJobTitle().ShowDialog();
             jobs = _employService.GetAllJobtitles();
         }
         #endregion
 
         #region Salary Details
         private void SalaryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new SalaryDetails().Show();
-
+        {   
+            new SalaryDetails().ShowDialog();
 
         }
         #endregion
@@ -347,7 +348,8 @@ namespace EmployeeeDataManagement
         {
             MessageBox.Show("sign out successfully",
                           "sign out", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          
+
+            this.previousWindow.Show();
             this.Close();
         }
         #endregion
@@ -359,7 +361,7 @@ namespace EmployeeeDataManagement
             String job = txtJobView.Text;
             String name = textViewName.Text;
             int id = Convert.ToInt32(txtViewEmpId.Text);
-            new ViewLeaveandSalary(id, name, job, ch).Show();
+            new ViewLeaveandSalary(id, name, job, ch).ShowDialog();
         }
         #endregion
 
@@ -370,8 +372,13 @@ namespace EmployeeeDataManagement
             String job =  txtJobView.Text;
             String name = textViewName.Text;
             int id =Convert.ToInt32(txtViewEmpId.Text);
-          new  ViewLeaveandSalary(id, name, job, ch).Show();
+          new  ViewLeaveandSalary(id, name, job, ch).ShowDialog();
         }
         #endregion
+
+        private void Adminlogin_Load(object sender, EventArgs e)
+        {
+           // this.previousWindow.Show();
+        }
     }
 }

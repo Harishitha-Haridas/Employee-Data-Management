@@ -282,6 +282,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SalaryDetails";
             this.Text = "SalaryDetails";
+            this.Load += new System.EventHandler(this.SalaryDetails_Load);
             this.groupcalculate.ResumeLayout(false);
             this.groupcalculate.PerformLayout();
             this.groupview.ResumeLayout(false);

@@ -173,14 +173,14 @@ namespace EmployeeeDataManagement
         #region Leave Application
         private void leaveApplicationToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            new Leaves(ID).Show();
+            new Leaves(ID).ShowDialog();
         }
         #endregion
 
         #region Change Password
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                 new ChangePassword(ID, Pass, this).Show();
+                 new ChangePassword(ID, Pass, this).ShowDialog();
         }
         #endregion
 
@@ -193,23 +193,28 @@ namespace EmployeeeDataManagement
         }
         #endregion
 
+
+        #region salarydetails 
         private void btnSalaryDetails_Click(object sender, EventArgs e)
         {
             int ch = 2;
             String job = txtJob.Text;
             String name = textName.Text;
             int id = Convert.ToInt32(txtEmpId.Text);
-            new ViewLeaveandSalary(id, name, job, ch).Show();
+            new ViewLeaveandSalary(id, name, job, ch).ShowDialog();
 
         }
+        #endregion
 
+        #region leave details 
         private void btnLeveDetails_Click(object sender, EventArgs e)
         {
             int ch = 1;
             String job = txtJob.Text;
             String name = textName.Text;
             int id = Convert.ToInt32(txtEmpId.Text);
-            new ViewLeaveandSalary(id, name, job, ch).Show();
+            new ViewLeaveandSalary(id, name, job, ch).ShowDialog();
         }
+        #endregion
     }
 }

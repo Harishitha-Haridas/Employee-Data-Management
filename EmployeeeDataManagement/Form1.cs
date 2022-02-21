@@ -30,9 +30,13 @@ namespace EmployeeeDataManagement
         {
             //string pass = password.Text;
             //String name_ = username.Text;
-            if (password.Text == "123" && username.Text == "admin")
-                new Adminlogin().Show();
-            else {
+            if (password.Text == "1234" && username.Text == "admin")
+            {
+                //Hide();
+                new Adminlogin(this).Show(); 
+            }
+            else
+            {
                 int k = _employService.GetByNamePassword(username.Text, password.Text);
                 if (k > 0)
                 {
