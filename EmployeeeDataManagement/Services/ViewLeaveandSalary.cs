@@ -28,9 +28,15 @@ namespace EmployeeeDataManagement.Services
             txtJob.Text= job;
 
             if(ch==1)
-            { dataGridView1.DataSource = _employService.GridLeave(id); }
+            {
+                groupview.Text = "View Leave Details";
+                dataGridView1.DataSource = _employService.GridLeave(id); 
+            }
             if (ch == 2)
-            { dataGridView1.DataSource = _employService.GridSalary(id); }
+            {
+                groupview.Text = "View Salary Details";
+                dataGridView1.DataSource = _employService.GridSalary(id);
+            }
         }
 
         private void ViewLeaveandSalary_Load(object sender, EventArgs e)

@@ -130,6 +130,7 @@
             this.Controls.Add(this.groupBox1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ChangePassword";
             this.Text = "Change Password";
             this.Load += new System.EventHandler(this.ChangePassword_Load);

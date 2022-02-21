@@ -98,8 +98,9 @@ namespace EmployeeeDataManagement
             var res = _employService.UpdatePersonDetails(ID, Email , Phone, Rloc, Gender);
 
             if (res > 0)
-                MessageBox.Show("Data updated successfully");
-
+               
+            MessageBox.Show("Data updated successfully",
+                        "Data Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #endregion
@@ -140,8 +141,8 @@ namespace EmployeeeDataManagement
             textmax.ReadOnly = true;
 
             bUpdate.Visible = true;
-            btnLeveDetails.Visible = true;
-            btnSalaryDetails.Visible = true;
+            btnLeveDetails.Visible = false;
+            btnSalaryDetails.Visible = false;
             // btnsave.Visible = false;
 
             //   int IDno = Convert.ToInt32(ID.Text);
@@ -188,7 +189,8 @@ namespace EmployeeeDataManagement
 
         private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("sign out successfully");
+            MessageBox.Show("sign out successfully",
+                         "sign out", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
         #endregion

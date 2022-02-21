@@ -59,11 +59,5 @@ namespace EmployeeeDataManagement
             int year = Convert.ToInt32(sortYear.Text);
             dataGridView1.DataSource = _employService.GridViewSalary(month,year);
         }
-
-        private void SalaryDetails_Load(object sender, EventArgs e)
-        {
-           // previousWindow.Enabled=true;
-           // previousWindow.menuStrip1.Enabled = false;
-        }
     }
 }

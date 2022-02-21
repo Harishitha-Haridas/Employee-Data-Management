@@ -40,7 +40,7 @@ namespace EmployeeeDataManagement
            
 
             string password;
-           // int Emd = Convert.ToInt32(txtEmp.Text);
+          
             String current = txtcurrent.Text;
             if ( current == Pass)
             { 
@@ -63,10 +63,10 @@ namespace EmployeeeDataManagement
                     }
                 }
                 else
-                    MessageBox.Show("New passwod and Conform password must be same");
+                    MessageBox.Show("New passwod and Conform password must be same", "Authontication Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-                MessageBox.Show("Invalid ID or Password");
+                MessageBox.Show("Invalid ID or Password", "Authontication Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

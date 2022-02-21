@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalaryDetails));
             this.groupcalculate = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +67,7 @@
             this.groupcalculate.Size = new System.Drawing.Size(331, 139);
             this.groupcalculate.TabIndex = 0;
             this.groupcalculate.TabStop = false;
-            this.groupcalculate.Text = "Apply for Leave";
+            this.groupcalculate.Text = "Calculate Salary";
             this.groupcalculate.Visible = false;
             // 
             // label5
@@ -227,7 +228,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 74);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(736, 301);
@@ -251,7 +252,7 @@
             this.calaculateSalaryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(776, 29);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -267,22 +268,23 @@
             // 
             this.calaculateSalaryToolStripMenuItem.ForeColor = System.Drawing.Color.Navy;
             this.calaculateSalaryToolStripMenuItem.Name = "calaculateSalaryToolStripMenuItem";
-            this.calaculateSalaryToolStripMenuItem.Size = new System.Drawing.Size(154, 25);
-            this.calaculateSalaryToolStripMenuItem.Text = "&Calaculate Salary";
+            this.calaculateSalaryToolStripMenuItem.Size = new System.Drawing.Size(145, 25);
+            this.calaculateSalaryToolStripMenuItem.Text = "&Calculate Salary";
             this.calaculateSalaryToolStripMenuItem.Click += new System.EventHandler(this.calaculateSalaryToolStripMenuItem_Click);
             // 
             // SalaryDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(776, 450);
             this.Controls.Add(this.groupcalculate);
             this.Controls.Add(this.groupview);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "SalaryDetails";
-            this.Text = "SalaryDetails";
-            this.Load += new System.EventHandler(this.SalaryDetails_Load);
+            this.Text = "Salary Details";
             this.groupcalculate.ResumeLayout(false);
             this.groupcalculate.PerformLayout();
             this.groupview.ResumeLayout(false);

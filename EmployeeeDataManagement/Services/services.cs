@@ -468,7 +468,7 @@ namespace EmployeeeDataManagement.Services
             ConnectionManager.EnsureConnectionIsActive();
             
 
-            var sql = $"SELECT  {nameof(SalaryTable.EmpId)},{nameof(SalaryTable.SMonth)} ,{nameof(SalaryTable.SYear)} ," +
+            var sql = $"SELECT  {nameof(SalaryTable.EmpId)} AS 'Employee Id' , {nameof(SalaryTable.SMonth)} AS 'Month' , {nameof(SalaryTable.SYear)} As 'Year' ," +
                 $" {nameof(SalaryTable.ApplicableSalary)} FROM {nameof(SalaryTable)} Where {nameof(SalaryTable.EmpId)} = {Id} ";
 
             var da = new SqlDataAdapter(sql, _connection);
@@ -486,7 +486,7 @@ namespace EmployeeeDataManagement.Services
         {
             ConnectionManager.EnsureConnectionIsActive();
           
-            var sql = $"SELECT  {nameof(Leave.EmpId)},{nameof(Leave.Date)} ,{nameof(Leave.Lreason)} " +
+            var sql = $"SELECT  {nameof(Leave.EmpId)} as 'Employee ID' ,{nameof(Leave.Date)} as 'Date' ,{nameof(Leave.Lreason)} as 'Reason' " +
                $" FROM {nameof(Leave)} Where {nameof(Leave.EmpId)} = {Id} ";
 
                 var da = new SqlDataAdapter(sql, _connection);

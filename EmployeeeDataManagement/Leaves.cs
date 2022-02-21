@@ -26,35 +26,39 @@ namespace EmployeeeDataManagement
         }
 
         private void Apply_Click(object sender, EventArgs e)
-        { string t= dateTimePick.Text;
-            int p= dateTimePick.Value.Year;
-            int k = dateTimePick.Value.Month;
-            int j = 0;
-            int Date,Month,Year;
-            string FullDate, Reason;
-          //  Date = Convert.ToInt32(txtDate.Text);
-          //  Month = Convert.ToInt32(comboMonth.Text);
-             //   Year = Convert.ToInt32(comboYear.Text);
+        { string FullDate = dateTimePick.Text;
+            int Year = dateTimePick.Value.Year;
+            int Month = dateTimePick.Value.Month;
+            int Day = dateTimePick.Value.Day;
 
+            string  Reason;
+         
             Reason = RichReason.Text;
-               // FullDate = $"{ Date}/{Month} /{Year}";
-
-            var lv = new Leave()
+             if(Reason=="")
+                MessageBox.Show("Please Enter a Reason",
+                                         "Reason Needed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
             {
-                EmpId = ID,
-            LDay = j,
-                LMonth = k,
-                LYear = p,
+                var lv = new Leave()
+                {
+                    EmpId = ID,
+                    LDay = Day,
+                    LMonth = Month,
+                    LYear = Year,
 
-                Date = t,
-                Lreason = Reason
+                    Date = FullDate,
+                    Lreason = Reason
 
 
-            };
+                };
+
+                var res = _employService.InserLeave(lv);
+                if (res > 0)
+                   
+                    MessageBox.Show("Leave Aprooved",
+                                              "Leave Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
            
-            var res = _employService.InserLeave(lv);
-            if (res > 0)
-                MessageBox.Show("Data added successfully");
 
 
         }
