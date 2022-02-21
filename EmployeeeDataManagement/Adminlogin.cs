@@ -329,9 +329,9 @@ namespace EmployeeeDataManagement
         {
             MessageBox.Show("sign out successfully",
                           "sign out", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.previousWindow.Show();
-            this.Close();
+            previousWindow.Show();
+          
+            Close();
         }
         #endregion
 
@@ -380,5 +380,10 @@ namespace EmployeeeDataManagement
                          "Data updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
+
+        private void Adminlogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.previousWindow.Show();
+        }
     }
 }

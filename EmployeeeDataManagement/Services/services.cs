@@ -90,7 +90,7 @@ namespace EmployeeeDataManagement.Services
 
                     Employee.MaxSalary = reader.GetInt32(10);
                    // Employee.ApplicableSalary = reader.GetInt32(11);
-                    Employee.Password = reader.GetString(12);
+                    Employee.Password = reader.GetString(11);
                 
                 }
             }
@@ -280,58 +280,59 @@ namespace EmployeeeDataManagement.Services
         #endregion
 
         #region CALCULATING SALARY
-        public int Calsalary(int ID,int month, int Year, string MonthYear)
-        { 
-            int max = 0, no_leave = 0;
-            long perday, App;
-            ConnectionManager.EnsureConnectionIsActive();
-            var sql1 = $"SELECT {nameof(EmployeeData.MaxSalary)} FROM {nameof(EmployeeData)} " +
-                $" WHERE {nameof(EmployeeData.ID)} = @ID";
-            var cmd1 = new SqlCommand(sql1, _connection);
-            cmd1.Parameters.AddWithValue("@ID", ID);
-            var reader1 = cmd1.ExecuteReader();
-            while (reader1.Read())
-            {
-                max = reader1.GetInt32(0);
-               
-            }
-            reader1.Close();
-         
-            ConnectionManager.EnsureConnectionIsActive();
-            var sql2 = $"SELECT COUNT(*)  FROM {nameof(Leave)} WHERE {nameof(Leave.EmpId)}=@ID and" +
-                $" {nameof(Leave.LMonth)}=@month and {nameof(Leave.LYear)}=@Year";
-            var cmd2 = new SqlCommand(sql2, _connection);
+        public int Calsalary(int ID,int month, int Year)
+        {
+           
+                int max = 0, no_leave = 0;
+                long perday, App;
+                ConnectionManager.EnsureConnectionIsActive();
+                var sql1 = $"SELECT {nameof(EmployeeData.MaxSalary)} FROM {nameof(EmployeeData)} " +
+                    $" WHERE {nameof(EmployeeData.ID)} = @ID";
+                var cmd1 = new SqlCommand(sql1, _connection);
+                cmd1.Parameters.AddWithValue("@ID", ID);
+                var reader1 = cmd1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    max = reader1.GetInt32(0);
 
-            cmd2.Parameters.AddWithValue("@ID", ID);
-            cmd2.Parameters.AddWithValue("@month", month);
-            cmd2.Parameters.AddWithValue("@Year", Year);
+                }
+                reader1.Close();
 
-            var reader2 = cmd2.ExecuteReader();
-            while (reader2.Read())
-            {
-                no_leave = reader2.GetInt32(0);
+                ConnectionManager.EnsureConnectionIsActive();
+                var sql2 = $"SELECT COUNT(*)  FROM {nameof(Leave)} WHERE {nameof(Leave.EmpId)}=@ID and" +
+                    $" {nameof(Leave.LMonth)}=@month and {nameof(Leave.LYear)}=@Year";
+                var cmd2 = new SqlCommand(sql2, _connection);
 
-            }
-            reader2.Close();
+                cmd2.Parameters.AddWithValue("@ID", ID);
+                cmd2.Parameters.AddWithValue("@month", month);
+                cmd2.Parameters.AddWithValue("@Year", Year);
+              
+                var reader2 = cmd2.ExecuteReader();
+                while (reader2.Read())
+                {
+                    no_leave = reader2.GetInt32(0);
 
-            perday = (max / 30)* no_leave;
+                }
+                reader2.Close();
 
-            App = max - perday;
+                perday = (max / 30) * no_leave;
 
-            ConnectionManager.EnsureConnectionIsActive();
-             
-            var sql3 = $"INSERT INTO {nameof(SalaryTable)} ({nameof(SalaryTable.EmpId)} , {nameof(SalaryTable.SMonth)} ," +
-                $" {nameof(SalaryTable.SYear)} , {nameof(SalaryTable.ApplicableSalary)} ,{nameof(SalaryTable.MonthYear)}) VALUES (@ID , @month , @year , @app ,@monthyear)";
-            // var sql = $"SELECT {nameof(JobTitle.JobTitiles)} FROM {nameof(JobTitle)}";
-            var cmd3 = new SqlCommand(sql3, _connection);
-            cmd3.Parameters.AddWithValue("@ID", ID);
-            cmd3.Parameters.AddWithValue("@month", month);
-            cmd3.Parameters.AddWithValue("@year", Year);
-            cmd3.Parameters.AddWithValue("@app", App);
-            cmd3.Parameters.AddWithValue("@monthyear", MonthYear);
+                App = max - perday;
 
-            return cmd3.ExecuteNonQuery();
+                ConnectionManager.EnsureConnectionIsActive();
 
+                var sql3 = $"INSERT INTO {nameof(SalaryTable)} ({nameof(SalaryTable.EmpId)} , {nameof(SalaryTable.SMonth)} ," +
+                    $" {nameof(SalaryTable.SYear)} , {nameof(SalaryTable.ApplicableSalary)} ) VALUES (@ID , @month , @year , @app )";
+                // var sql = $"SELECT {nameof(JobTitle.JobTitiles)} FROM {nameof(JobTitle)}";
+                var cmd3 = new SqlCommand(sql3, _connection);
+                cmd3.Parameters.AddWithValue("@ID", ID);
+                cmd3.Parameters.AddWithValue("@month", month);
+                cmd3.Parameters.AddWithValue("@year", Year);
+                cmd3.Parameters.AddWithValue("@app", App);
+                //cmd3.Parameters.AddWithValue("@monthyear", MonthYear);
+
+                return cmd3.ExecuteNonQuery();
+            
         }
         #endregion
 
@@ -443,20 +444,24 @@ namespace EmployeeeDataManagement.Services
         #region Insert Leave
         public int InserLeave(Leave lv)
         {
-            ConnectionManager.EnsureConnectionIsActive();
-            var sql = $"INSERT INTO {nameof(Leave)} ({nameof(Leave.EmpId)},{nameof(Leave.LDay)}," +
-                $" {nameof(Leave.LMonth)},{nameof(Leave.LYear)}, {nameof(Leave.Date)}," +
-                 $" {nameof(Leave.Lreason)}) VALUES" +
-                "(@EmpId,@LDay ,@LMonth,@LYear,@Date, @Lreason)";
-            var cmd = new SqlCommand(sql, _connection);
-            cmd.Parameters.AddWithValue("@EmpId", lv.EmpId);
-            cmd.Parameters.AddWithValue("@LDay ", lv.LDay);
-            cmd.Parameters.AddWithValue("@LMonth", lv.LMonth);
-            cmd.Parameters.AddWithValue("@LYear", lv.LYear);
-            cmd.Parameters.AddWithValue("@Date", lv.Date);
-            cmd.Parameters.AddWithValue("@Lreason", lv.Lreason);
+            try
+            {
+                ConnectionManager.EnsureConnectionIsActive();
+                var sql = $"INSERT INTO {nameof(Leave)} ({nameof(Leave.EmpId)},{nameof(Leave.LDay)}," +
+                    $" {nameof(Leave.LMonth)},{nameof(Leave.LYear)}, {nameof(Leave.Date)}," +
+                     $" {nameof(Leave.Lreason)}) VALUES" +
+                    "(@EmpId,@LDay ,@LMonth,@LYear,@Date, @Lreason)";
+                var cmd = new SqlCommand(sql, _connection);
+                cmd.Parameters.AddWithValue("@EmpId", lv.EmpId);
+                cmd.Parameters.AddWithValue("@LDay ", lv.LDay);
+                cmd.Parameters.AddWithValue("@LMonth", lv.LMonth);
+                cmd.Parameters.AddWithValue("@LYear", lv.LYear);
+                cmd.Parameters.AddWithValue("@Date", lv.Date);
+                cmd.Parameters.AddWithValue("@Lreason", lv.Lreason);
 
-            return cmd.ExecuteNonQuery();
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { return 0; }
         }
 
 

@@ -39,6 +39,7 @@
             this.txtJob = new System.Windows.Forms.TextBox();
             this.lblJob = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboGender = new System.Windows.Forms.ComboBox();
             this.textRloc = new System.Windows.Forms.TextBox();
             this.lblRloc = new System.Windows.Forms.Label();
             this.textAge = new System.Windows.Forms.TextBox();
@@ -61,7 +62,6 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalaryDetails = new System.Windows.Forms.Button();
             this.btnLeveDetails = new System.Windows.Forms.Button();
-            this.comboGender = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -176,6 +176,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = " Personal Informations";
             this.groupBox2.Visible = false;
+            // 
+            // comboGender
+            // 
+            this.comboGender.FormattingEnabled = true;
+            this.comboGender.Items.AddRange(new object[] {
+            "Male ",
+            "Female",
+            "Other",
+            "Not to Disclose"});
+            this.comboGender.Location = new System.Drawing.Point(388, 118);
+            this.comboGender.Name = "comboGender";
+            this.comboGender.Size = new System.Drawing.Size(103, 25);
+            this.comboGender.TabIndex = 21;
             // 
             // textRloc
             // 
@@ -373,19 +386,6 @@
             this.btnLeveDetails.Visible = false;
             this.btnLeveDetails.Click += new System.EventHandler(this.btnLeveDetails_Click);
             // 
-            // comboGender
-            // 
-            this.comboGender.FormattingEnabled = true;
-            this.comboGender.Items.AddRange(new object[] {
-            "Male ",
-            "Female",
-            "Other",
-            "Not to Disclose"});
-            this.comboGender.Location = new System.Drawing.Point(388, 118);
-            this.comboGender.Name = "comboGender";
-            this.comboGender.Size = new System.Drawing.Size(103, 25);
-            this.comboGender.TabIndex = 21;
-            // 
             // EmployeeLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -406,6 +406,7 @@
             this.Name = "EmployeeLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Employee Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeLogin_FormClosed);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);

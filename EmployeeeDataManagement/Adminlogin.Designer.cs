@@ -1315,6 +1315,7 @@
             this.Name = "Adminlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Adminlogin";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Adminlogin_FormClosed);
             this.Load += new System.EventHandler(this.Adminlogin_Load);
             this.groupNavigate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

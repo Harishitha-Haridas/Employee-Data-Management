@@ -20,7 +20,7 @@ namespace EmployeeeDataManagement
     {
         int ID;
         string Pass;
-
+        private readonly Form1 previousWindow;
         private readonly services _employService = new services();
         //  private EmployeeData Emp=new EmployeeData();
 
@@ -73,12 +73,13 @@ namespace EmployeeeDataManagement
         }
         #endregion
 
-        public EmployeeLogin(int i,string s)
+        public EmployeeLogin(int i,string s, Form1 pre)
         {
             InitializeComponent();
             ID=i;
             Pass = s;
             ViewInEmp();
+            this.previousWindow = pre;
         }
 
         #region Update
@@ -191,7 +192,10 @@ namespace EmployeeeDataManagement
         {
             MessageBox.Show("sign out successfully",
                          "sign out", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            previousWindow.Show();
+
+            Close();
+           // this.Close();
         }
         #endregion
 
@@ -218,5 +222,10 @@ namespace EmployeeeDataManagement
             new ViewLeaveandSalary(id, name, job, ch).ShowDialog();
         }
         #endregion
+
+        private void EmployeeLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.previousWindow.Show();
+        }
     }
 }

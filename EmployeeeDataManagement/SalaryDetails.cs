@@ -49,8 +49,9 @@ namespace EmployeeeDataManagement
             IDAll = _employService.GetAllIDs();
             foreach(var item in IDAll)
             {
-                t += _employService.Calsalary(item,month, year, monthyear);
+                t += _employService.Calsalary(item,month, year);
             }
+            if(t>0)
             MessageBox.Show("Salary Calculated successfully",
                             "Operation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -66,7 +66,7 @@ namespace EmployeeeDataManagement.Model
         public int SMonth { get; set; }
         public int SYear { get; set; }
 
-         public String MonthYear { get; set; }
+        // public String MonthYear { get; set; }
         public int ApplicableSalary { get; set; }
        
     }

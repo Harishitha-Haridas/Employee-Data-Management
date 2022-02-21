@@ -33,19 +33,30 @@ namespace EmployeeeDataManagement
             if (password.Text == "1234" && username.Text == "admin")
             {
                 //Hide();
-                new Adminlogin(this).Show(); 
+                new Adminlogin(this).Show();
+                password.Text = "";
+                username.Text = "";
+                this.Hide();
             }
             else
             {
                 int k = _employService.GetByNamePassword(username.Text, password.Text);
                 if (k > 0)
                 {
-                    new EmployeeLogin(k, password.Text).Show();
+                    new EmployeeLogin(k, password.Text,this).Show();
+                    password.Text = "";
+                    username.Text = "";
+                    this.Hide();
                 }
                 else
                     MessageBox.Show("Please Provide Valid Username And Password");
             }
             
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
