@@ -124,7 +124,7 @@ namespace EmployeeeDataManagement
 
                     Depatment = Adddepatment.Text,
                     MaxSalary = Convert.ToInt32(TxtAddMax.Text),
-                    ApplicableSalary = 0
+                    //ApplicableSalary = 0
 
 
                 };
@@ -147,8 +147,6 @@ namespace EmployeeeDataManagement
         }
         #endregion
 
-
-       
 
 
         #region search in groupbox

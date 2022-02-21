@@ -44,7 +44,7 @@ namespace EmployeeeDataManagement.Services
 
             cmd.Parameters.AddWithValue("@JobLocation", Employee.JobLocation);
             cmd.Parameters.AddWithValue("@MaxSalary", Employee.MaxSalary);
-            cmd.Parameters.AddWithValue("@ApplicableSalary", Employee.ApplicableSalary);
+            //cmd.Parameters.AddWithValue("@ApplicableSalary", Employee.ApplicableSalary);
       
             return cmd.ExecuteNonQuery();
         }
@@ -59,7 +59,7 @@ namespace EmployeeeDataManagement.Services
             var sql = $"SELECT  {nameof(EmployeeData.ID)},{nameof(EmployeeData.Name)},{nameof(EmployeeData.Phone)}," +
                 $" {nameof(EmployeeData.Email)},{nameof(EmployeeData.age)}, {nameof(EmployeeData.sex)}," +
                 $" {nameof(EmployeeData.ResidentialLocation)} , {nameof(EmployeeData.JobTitle)}, {nameof(EmployeeData.Depatment)}, {nameof(EmployeeData.JobLocation)}," +
-                 $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.ApplicableSalary)},{nameof(EmployeeData.Password)} FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.ID)} = @id ";     // and {nameof(EmployeeData.Name)} = @Name
+                 $" {nameof(EmployeeData.MaxSalary)},{nameof(EmployeeData.Password)} FROM {nameof(EmployeeData)} WHERE {nameof(EmployeeData.ID)} = @id ";     // and {nameof(EmployeeData.Name)} = @Name
 
 
             var cmd = new SqlCommand(sql, _connection);
@@ -89,7 +89,7 @@ namespace EmployeeeDataManagement.Services
 
 
                     Employee.MaxSalary = reader.GetInt32(10);
-                    Employee.ApplicableSalary = reader.GetInt32(11);
+                   // Employee.ApplicableSalary = reader.GetInt32(11);
                     Employee.Password = reader.GetString(12);
                 
                 }
@@ -280,7 +280,7 @@ namespace EmployeeeDataManagement.Services
         #endregion
 
         #region CALCULATING SALARY
-        public int Calsalary(int ID,int month, int Year)
+        public int Calsalary(int ID,int month, int Year, string MonthYear)
         { 
             int max = 0, no_leave = 0;
             long perday, App;
@@ -319,15 +319,16 @@ namespace EmployeeeDataManagement.Services
             App = max - perday;
 
             ConnectionManager.EnsureConnectionIsActive();
-     
+             
             var sql3 = $"INSERT INTO {nameof(SalaryTable)} ({nameof(SalaryTable.EmpId)} , {nameof(SalaryTable.SMonth)} ," +
-                $" {nameof(SalaryTable.SYear)} , {nameof(SalaryTable.ApplicableSalary)}) VALUES (@ID , @month , @year ,@app)";
+                $" {nameof(SalaryTable.SYear)} , {nameof(SalaryTable.ApplicableSalary)} ,{nameof(SalaryTable.MonthYear)}) VALUES (@ID , @month , @year , @app ,@monthyear)";
             // var sql = $"SELECT {nameof(JobTitle.JobTitiles)} FROM {nameof(JobTitle)}";
             var cmd3 = new SqlCommand(sql3, _connection);
             cmd3.Parameters.AddWithValue("@ID", ID);
             cmd3.Parameters.AddWithValue("@month", month);
             cmd3.Parameters.AddWithValue("@year", Year);
             cmd3.Parameters.AddWithValue("@app", App);
+            cmd3.Parameters.AddWithValue("@monthyear", MonthYear);
 
             return cmd3.ExecuteNonQuery();
 

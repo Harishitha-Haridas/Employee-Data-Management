@@ -42,12 +42,14 @@ namespace EmployeeeDataManagement
         private void Calculate_Click(object sender, EventArgs e)
         {
             int t = 0;
-           int month = Convert.ToInt32(comboMonth.Text);
+           string monthyear = "${comboMonth.Text }+{comboYear.Text}";
+
+            int month = Convert.ToInt32(comboMonth.Text);
             int year = Convert.ToInt32(comboYear.Text);
             IDAll = _employService.GetAllIDs();
             foreach(var item in IDAll)
             {
-                t += _employService.Calsalary(item,month, year);
+                t += _employService.Calsalary(item,month, year, monthyear);
             }
             MessageBox.Show("Salary Calculated successfully",
                             "Operation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);

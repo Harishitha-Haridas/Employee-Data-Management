@@ -27,7 +27,7 @@ namespace EmployeeeDataManagement.Model
 
         public int MaxSalary { get; set; }
 
-        public int? ApplicableSalary { get; set; }
+       
 
         public string Password { get; set; }
 
@@ -66,6 +66,7 @@ namespace EmployeeeDataManagement.Model
         public int SMonth { get; set; }
         public int SYear { get; set; }
 
+         public String MonthYear { get; set; }
         public int ApplicableSalary { get; set; }
        
     }
